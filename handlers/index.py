@@ -13,10 +13,13 @@ class IndexHandler(tornado.web.RequestHandler):
     the index page of website.
     """
     def get(self):
-        pass
+        self.render("index.html")
 
     def post(self):
         """
         user login the website.
         """
-        pass
+        user_name = self.get_argument("username")
+        user_pwd = self.get_argument("password")
+        self.write(user_name)        
+
