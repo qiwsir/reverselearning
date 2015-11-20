@@ -6,7 +6,9 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 from handlers.index import IndexHandler
+from handlers.index import ListenWriteHandler
 
 url=[
     (r'/', IndexHandler),
+    (r'/listenwrite', ListenWriteHandler),
     ]

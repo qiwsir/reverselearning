@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Reverse Learn English</title>
-        <meta content="text/html; charset=utf-8" http-equiv="content-type">
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </head>
-    <body>
-        <h2>Listening and Writing</h2>
-        <audio controls="controls">
-            <source src="http://7lrwcp.com1.z0.glb.clouddn.com/nothing.mp3" type="audio/mpeg">
-            <p>Your browser does not support the <code>audio</code> element </p>
-        </audio>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block header %}
+    <p>Listen and write what you are listening.</p>
+{% end %}
+
+{% block body %}
+    <h2>Listening and Writing</h2>
+    <audio controls="controls">
+    <source src="http://7lrwcp.com1.z0.glb.clouddn.com/nothing.mp3" type="audio/mpeg">
+    <p>Your browser does not support the <code>audio</code> element </p>
+    </audio>
+{% end %}

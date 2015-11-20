@@ -17,12 +17,20 @@ $(document).ready(function(){
                 data: user_data,
                 cache: false,
                 success: function(e){
-                    alert(e);
+                    if (e=="1"){
+                        alert("good");
+                    }else if (e=="0"){
+                        alert("username or passwor is false.")
+                    }else {
+                        alert("are you a human?")
+                    }
                 },
                 error: function(e){
-                    alert(e);
+                    alert("ah");
                 },
             })
+        } else {
+            alert("please go out.")
         }
     })
 })

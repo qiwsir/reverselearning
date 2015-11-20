@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-from conndb import *
+from conndb.db import *
 import tornado.web
 
 import sys
@@ -21,5 +21,20 @@ class IndexHandler(tornado.web.RequestHandler):
         """
         user_name = self.get_argument("username")
         user_pwd = self.get_argument("password")
-        self.write(user_name)        
+        
+        if user_name and user_pwd:
+            sql = "select * from users where username='{0}'".format(user_name)
 
+        try:
+            cur.execute(sql)
+            password_in = cur.fetchone()[2]
+            if user_pwd == password_in:
+                self.write("1")
+            else:
+                self.write("0")
+        except:
+            self.write("-1")
+        
+class ListenWriteHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("listenwrite.html")
