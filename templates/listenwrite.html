@@ -5,9 +5,21 @@
 {% end %}
 
 {% block body %}
+    <h2>Hi, {{username}}</h2>
     <h2>Listening and Writing</h2>
     <audio controls="controls">
     <source src="http://7lrwcp.com1.z0.glb.clouddn.com/nothing.mp3" type="audio/mpeg">
     <p>Your browser does not support the <code>audio</code> element </p>
     </audio>
+    
+    <div class="wmd-panel">
+        <textarea id="wmd-input" class="wmd-input"></textarea>
+        <button id="ok">OK</button>
+    </div>
+    <script src="{{static_url('js/jquery.wmd.min.js')}}"></script> 
+    <script type="text/javascript">
+        $().ready(function() {
+            $("#wmd-input").wmd();                             
+        });
+    </script>
 {% end %}

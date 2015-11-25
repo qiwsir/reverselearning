@@ -37,4 +37,5 @@ class IndexHandler(tornado.web.RequestHandler):
         
 class ListenWriteHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render("listenwrite.html")
+        user_name = self.request.uri.split("=")[-1]
+        self.render("listenwrite.html", username = user_name)

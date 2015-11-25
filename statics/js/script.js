@@ -18,7 +18,7 @@ $(document).ready(function(){
                 cache: false,
                 success: function(e){
                     if (e=="1"){
-                        alert("good");
+                        location.href="http://127.0.0.1:8888/listenwrite?user=" + username
                     }else if (e=="0"){
                         alert("username or passwor is false.")
                     }else {
