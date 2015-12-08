@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <h2>audio name</h2>
+{% end %}
+
+{% block body %}
+<p>已有类别列表</p>
+<p>添加类别：</p>
+<form>
+    <p><span>类别名称：</span><input type="TEXT" id="categoryname" /></p>
+    <input type="BUTTON" value="submit" id="submitcategory" />
+</form>
+<br>
+    <form>
+        <p><span>AudioName:</span><input type="TEXT" id="audioname" /></p>
+        <p><span>UploadAudio:</span><input type="file" name="上传音频文件" size='28' id="uploadaudio" /></p>
+        <p><span>AudioText:</span></p>
+        <TEXTAREA></TEXTAREA>
+        <input type="BUTTON" value="submit" id="submitaudio" />
+    </form>
+{% end %}

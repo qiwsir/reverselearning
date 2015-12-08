@@ -39,3 +39,10 @@ class ListenWriteHandler(tornado.web.RequestHandler):
     def get(self):
         user_name = self.request.uri.split("=")[-1]
         self.render("listenwrite.html", username = user_name)
+
+    def post(self):
+        audio_name = self.get_argument("audioname")
+        audio_text = self.get_argument("audiotext")
+
+        print audio_text
+        self.write("1")

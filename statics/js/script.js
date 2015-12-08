@@ -34,3 +34,57 @@ $(document).ready(function(){
         }
     })
 })
+
+
+$(document).ready(function(){
+    $("#submit").click(function(){
+        var audioname = $("#audioname").text();
+        var inputs = $("#contents").val();
+        
+        if (inputs){
+            var post_data = {"audioname":audioname, "audiotext":inputs}
+            $.ajax({
+                type: "post",
+                url: "/listenwrite",
+                data: post_data,
+                cache: false,
+                success: function(e){
+                    if (e=="1"){
+                        alert("ok,good");
+                    } else {
+                        alert("please try again.")
+                    }
+                },
+                error: function(e){
+                    alert("are you on line?")
+                }
+            }
+            ) 
+        } else {
+            alert("please write what you are listening, and then submit.")
+        }
+    })
+})
+
+$(document).ready(function(){
+    $("#submitcategory").click(function(){
+        var category_name = $("#categoryname").val();
+        if (category_name){
+            var vategoryname = {"category_name":category_name}
+            $.ajax({
+                type: "post",
+                url: "/audio",
+                data: vategoryname,
+                success: function(e){
+                    if (e=="1"){
+                        alert("ok, the category is right.")
+                    } else {
+                        alert("you are wrong.")
+                    }
+                }
+            })
+        } else {
+            alert("You should input category name.")
+        }
+    })
+})
